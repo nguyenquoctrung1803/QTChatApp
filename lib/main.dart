@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_chatapp/layouts/mobile_screen_layout.dart';
+import 'package:flutter_chatapp/layouts/web_screen_layout.dart';
+import 'package:flutter_chatapp/responsive/responsive_layout.dart';
 import 'package:flutter_chatapp/utils/colors.dart';
 
 void main() {
@@ -17,7 +20,10 @@ class MyApp extends StatelessWidget {
       theme: ThemeData.dark().copyWith(
         backgroundColor: backgroundColor,
       ),
-      home: Text('Hello WhatsApp'),
+      home: ResponsiveLayout(
+        webScreenLayout: WebScreenLayout(),
+        mobileScreenLayout: MobileScreenLayout(),
+      ),
     );
   }
 }
