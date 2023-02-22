@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:flutter_chatapp/utils/colors.dart';
+import 'package:flutter_chatapp/widgets/contact_list.dart';
 
 class MobileScreenLayout extends StatelessWidget {
   const MobileScreenLayout({super.key});
@@ -12,6 +13,8 @@ class MobileScreenLayout extends StatelessWidget {
       length: 3,
       child: Scaffold(
         appBar: AppBar(
+          backgroundColor: backgroundColor,
+          elevation: 0,
           title: Text(
             'QTChatApp',
             style: TextStyle(
@@ -53,7 +56,7 @@ class MobileScreenLayout extends StatelessWidget {
             ],
           ),
         ),
-        body: Text('Mobile Screen'),
+        body: ContactsList(),
       ),
     );
   }
