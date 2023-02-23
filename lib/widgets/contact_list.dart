@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:flutter_chatapp/utils/colors.dart';
 import 'package:flutter_chatapp/utils/info_contact.dart';
 
@@ -24,21 +22,23 @@ class ContactsList extends StatelessWidget {
                     padding: const EdgeInsets.only(bottom: 8),
                     child: ListTile(
                       title: Text(info[index]['name'].toString(),
-                          style: TextStyle(fontSize: 18)),
+                          style: const TextStyle(fontSize: 18)),
                       subtitle: Padding(
-                        padding: EdgeInsets.only(top: 6),
+                        padding: const EdgeInsets.only(top: 6),
                         child: Text(
                           info[index]['message'].toString(),
-                          style: TextStyle(fontSize: 15),
+                          style: const TextStyle(fontSize: 15),
                         ),
                       ),
                       leading: CircleAvatar(
                         backgroundImage:
                             NetworkImage(info[index]['profilePic'].toString()),
+                        radius: 30,
                       ),
                       trailing: Text(
                         info[index]['time'].toString(),
-                        style: TextStyle(fontSize: 13, color: Colors.grey),
+                        style:
+                            const TextStyle(fontSize: 13, color: Colors.grey),
                       ),
                     ),
                   ),
