@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "246227073008",
+    "project_id": "qtchatapp--backend",
+    "storage_bucket": "qtchatapp--backend.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:246227073008:android:5c271caa87f859d61d0f35",
+        "android_client_info": {
+          "package_name": "com.example.flutter_chatapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "246227073008-s0h0c42fo639fgjk4o4v2e73d43g6psf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyABm3Ro_IW7nFejICO1RLoSAw1lHotpRHA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "246227073008-s0h0c42fo639fgjk4o4v2e73d43g6psf.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

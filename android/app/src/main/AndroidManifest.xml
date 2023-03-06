@@ -3,7 +3,7 @@
    <application
         android:label="QTChatApp"
         android:name="${applicationName}"
-        android:icon="@mipmap/ic_icons">
+        android:icon="@mipmap/launcher_icon">
         <activity
             android:name=".MainActivity"
             android:exported="true"
