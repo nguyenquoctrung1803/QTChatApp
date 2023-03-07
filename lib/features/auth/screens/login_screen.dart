@@ -1,18 +1,20 @@
 import 'package:country_picker/country_picker.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_chatapp/common/utils/utils.dart';
 import 'package:flutter_chatapp/common/widgets/custom_button.dart';
+import 'package:flutter_chatapp/features/auth/controllers/auth_controllers.dart';
 import 'package:flutter_chatapp/utils/colors.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class LoginScreen extends StatefulWidget {
+class LoginScreen extends ConsumerStatefulWidget {
   static const routeName = '/login-screen';
-
   const LoginScreen({super.key});
 
   @override
-  State<LoginScreen> createState() => _LoginScreenState();
+  ConsumerState<LoginScreen> createState() => _LoginScreenState();
 }
 
-class _LoginScreenState extends State<LoginScreen> {
+class _LoginScreenState extends ConsumerState<LoginScreen> {
   final phoneController = TextEditingController();
   Country? countrypick;
   void pickCountry() {
@@ -26,6 +28,17 @@ class _LoginScreenState extends State<LoginScreen> {
         });
       },
     );
+  }
+
+  void sendPhoneNumber() {
+    final phoneNumber = phoneController.text.trim();
+    if (countrypick != null && phoneNumber.isNotEmpty) {
+      ref
+          .read(authControllerProvider)
+          .signInWithPhone(context, '+${countrypick!.phoneCode}$phoneNumber');
+    } else {
+      showSnackBar(context: context, content: 'Please fill all the fields!');
+    }
   }
 
   @override
@@ -82,7 +95,7 @@ class _LoginScreenState extends State<LoginScreen> {
             SizedBox(
               width: 90,
               child: CustomButton(
-                onPressed: () {},
+                onPressed: sendPhoneNumber,
                 text: 'NEXT',
               ),
             )
