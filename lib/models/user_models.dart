@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 class UserModel {
   final String name;
@@ -18,10 +16,10 @@ class UserModel {
   });
 
   Map<String, dynamic> toMap() {
-    return <String, dynamic>{
+    return {
       'name': name,
-      'profilePic': profilePic,
       'uid': uid,
+      'profilePic': profilePic,
       'isOnline': isOnline,
       'phoneNumber': phoneNumber,
       'groupId': groupId,
@@ -30,14 +28,12 @@ class UserModel {
 
   factory UserModel.fromMap(Map<String, dynamic> map) {
     return UserModel(
-      name: map['name'] as String,
-      profilePic: map['profilePic'] as String,
-      uid: map['uid'] as String,
-      isOnline: map['isOnline'] as bool,
-      phoneNumber: map['phoneNumber'] as String,
-      groupId: List<String>.from(
-        (map['groupId'] as List<String>),
-      ),
+      name: map['name'] ?? '',
+      uid: map['uid'] ?? '',
+      profilePic: map['profilePic'] ?? '',
+      isOnline: map['isOnline'] ?? false,
+      phoneNumber: map['phoneNumber'] ?? '',
+      groupId: List<String>.from(map['groupId']),
     );
   }
 }

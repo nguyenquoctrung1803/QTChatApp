@@ -5,6 +5,7 @@ import 'package:flutter_chatapp/widgets/chat_list.dart';
 import '../utils/info_contact.dart';
 
 class MobileChatScreen extends StatelessWidget {
+  static const String routeName = '/mobile-chat-screen';
   const MobileChatScreen({super.key});
 
   @override

@@ -64,6 +64,8 @@
 	<string> Camera use</string>
 	<key>NSMicrophoneUsageDescription</key>
 	<string> Mic use</string>
+	<key>NSContactsUsageDescription</key>
+    <string>Contact list to Chat</string>
 
 	
 </dict>

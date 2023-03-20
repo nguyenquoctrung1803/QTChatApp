@@ -25,6 +25,17 @@ class AuthRepository {
 
   AuthRepository({required this.auth, required this.firestore});
 
+  Future<UserModel?> getCurrentDatauser() async {
+    var userData =
+        await firestore.collection('user').doc(auth.currentUser?.uid).get();
+
+    UserModel? user;
+    if (userData.data() != null) {
+      user = UserModel.fromMap(userData.data()!);
+    }
+    return user;
+  }
+
   void signInWithPhoneNumber(BuildContext context, String phoneNumber) async {
     try {
       await auth.verifyPhoneNumber(
@@ -81,7 +92,7 @@ class AuthRepository {
         profilePic: photoUrl,
         uid: uid,
         isOnline: true,
-        phoneNumber: auth.currentUser!.uid,
+        phoneNumber: auth.currentUser!.phoneNumber!,
         groupId: [],
       );
       firestore.collection('user').doc(uid).set(user.toMap());
