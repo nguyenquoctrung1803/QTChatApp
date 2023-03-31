@@ -27,25 +27,26 @@ class MyApp extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return MaterialApp(
-        debugShowCheckedModeBanner: false,
-        title: 'WhatsApp',
-        theme: ThemeData.dark().copyWith(
-            scaffoldBackgroundColor: backgroundColor,
-            appBarTheme: const AppBarTheme(
-              color: appBarColor,
-            )),
-        onGenerateRoute: (setting) => generateRoute(setting),
-        home: ref.watch(userDataAuthProvider).when(
-              data: (user) {
-                if (user == null) {
-                  return const LandingScreen();
-                }
-                return const MobileScreenLayout();
-              },
-              error: (err, trace) {
-                return ErrorScreen(error: err.toString());
-              },
-              loading: () => const LoadingScreen(),
-            ));
+      debugShowCheckedModeBanner: false,
+      title: 'WhatsApp',
+      theme: ThemeData.dark().copyWith(
+          scaffoldBackgroundColor: backgroundColor,
+          appBarTheme: const AppBarTheme(
+            color: appBarColor,
+          )),
+      onGenerateRoute: (setting) => generateRoute(setting),
+      home: ref.watch(userDataAuthProvider).when(
+            data: (user) {
+              if (user == null) {
+                return const LandingScreen();
+              }
+              return const MobileScreenLayout();
+            },
+            error: (err, trace) {
+              return ErrorScreen(error: err.toString());
+            },
+            loading: () => const LoadingScreen(),
+          ),
+    );
   }
 }
