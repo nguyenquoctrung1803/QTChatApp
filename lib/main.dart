@@ -6,8 +6,6 @@ import 'package:flutter_chatapp/features/auth/controllers/auth_controllers.dart'
 import 'package:flutter_chatapp/features/landing/screens/landing_screen.dart';
 import 'package:flutter_chatapp/firebase_options.dart';
 import 'package:flutter_chatapp/layouts/mobile_screen_layout.dart';
-import 'package:flutter_chatapp/layouts/web_screen_layout.dart';
-import 'package:flutter_chatapp/responsive/responsive_layout.dart';
 import 'package:flutter_chatapp/routes.dart';
 import 'package:flutter_chatapp/utils/colors.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';

@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_chatapp/common/utils/utils.dart';
 import 'package:flutter_chatapp/features/auth/screens/otp_screen.dart';
 import 'package:flutter_chatapp/features/auth/screens/user_information_screen.dart';
-import 'package:flutter_chatapp/layouts/mobile_screen_layout.dart';
+import 'package:flutter_chatapp/mobile_screen_layout.dart';
 import 'package:flutter_chatapp/models/user_models.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -96,6 +96,7 @@ class AuthRepository {
         groupId: [],
       );
       firestore.collection('user').doc(uid).set(user.toMap());
+      // ignore: use_build_context_synchronously
       Navigator.pushAndRemoveUntil(
           context,
           MaterialPageRoute(

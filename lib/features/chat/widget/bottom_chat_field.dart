@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_chatapp/features/chat/controller/chat_controller.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../../../utils/colors.dart';
+import '../../../common/utils/colors.dart';
 
 class BottomChatField extends ConsumerStatefulWidget {
   final String receiverUserId;
@@ -121,11 +121,11 @@ class _BottomChatFieldState extends ConsumerState<BottomChatField> {
             ),
             radius: 25,
             child: GestureDetector(
+              onTap: sendTextMessage,
               child: Icon(
                 isShowSendButton ? Icons.send : Icons.mic,
                 color: Colors.white,
               ),
-              onTap: sendTextMessage,
             ),
           ),
         ),

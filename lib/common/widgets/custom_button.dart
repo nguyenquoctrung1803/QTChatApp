@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_chatapp/utils/colors.dart';
+import 'package:flutter_chatapp/common/utils/colors.dart';
 
 class CustomButton extends StatelessWidget {
   final String text;
@@ -10,15 +10,15 @@ class CustomButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return ElevatedButton(
       onPressed: onPressed,
+      style: ElevatedButton.styleFrom(
+        backgroundColor: tabColor,
+        minimumSize: const Size(double.infinity, 50),
+      ),
       child: Text(
         text,
         style: const TextStyle(
           color: blackColor,
         ),
-      ),
-      style: ElevatedButton.styleFrom(
-        primary: tabColor,
-        minimumSize: Size(double.infinity, 50),
       ),
     );
   }

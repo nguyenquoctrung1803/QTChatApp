@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_chatapp/features/auth/controllers/auth_controllers.dart';
-import 'package:flutter_chatapp/utils/colors.dart';
+import 'package:flutter_chatapp/common/utils/colors.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class OTPScreen extends ConsumerWidget {
@@ -47,10 +47,8 @@ class OTPScreen extends ConsumerWidget {
                 keyboardType: TextInputType.number,
                 onChanged: (val) {
                   if (val.length == 6) {
-                    print('verifying OTP');
                     verifyOTP(ref, context, val.trim());
                   }
-                  print('Is Running');
                 },
               ),
             ),

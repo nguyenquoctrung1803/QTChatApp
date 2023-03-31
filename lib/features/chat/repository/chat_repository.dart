@@ -2,7 +2,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_chatapp/common/enum/message_enum.dart';
 import 'package:flutter_chatapp/common/utils/utils.dart';
 import 'package:flutter_chatapp/models/chat_contact.dart';
 import 'package:flutter_chatapp/models/user_models.dart';
@@ -122,13 +121,11 @@ class ChatRepository {
     required String messageId,
     required String username,
     required String receiverUsername,
-    required MessageEnum messageType,
   }) async {
     final message = Message(
       senderId: auth.currentUser!.uid,
       recieverid: receiverUserId,
       text: text,
-      type: messageType,
       timeSent: timeSent,
       messageId: messageId,
       isSeen: false,
@@ -186,7 +183,6 @@ class ChatRepository {
       _saveMessageToMessageSubCollection(
         receiverUserId: receiverUserId,
         timeSent: timeSent,
-        messageType: MessageEnum.text,
         text: text,
         messageId: messageId,
         receiverUsername: receiverUserData.name,
