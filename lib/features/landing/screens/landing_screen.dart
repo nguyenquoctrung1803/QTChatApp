@@ -14,54 +14,56 @@ class LandingScreen extends StatelessWidget {
     final size = MediaQuery.of(context).size;
     return Scaffold(
       body: SafeArea(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            const SizedBox(
-              height: 50,
-            ),
-            const Text(
-              'Welcome to QTChatApp',
-              style: TextStyle(
-                fontSize: 32,
-                fontWeight: FontWeight.w600,
+        child: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              const SizedBox(
+                height: 50,
               ),
-            ),
-            SizedBox(
-              height: size.height / 9,
-            ),
-            Image.asset(
-              'assets/bg.png',
-              height: 340,
-              width: 340,
-              color: tabColor,
-            ),
-            SizedBox(
-              height: size.height / 9,
-            ),
-            const Padding(
-              padding: EdgeInsets.all(15.0),
-              child: Text(
-                'Read our Privacy Policy. Tap "Agree and continue" to accept the term of Service',
+              const Text(
+                'Welcome to QTChatApp',
                 style: TextStyle(
-                  color: greyColor,
+                  fontSize: 32,
+                  fontWeight: FontWeight.w600,
                 ),
-                textAlign: TextAlign.center,
               ),
-            ),
-            const SizedBox(
-              height: 10,
-            ),
-            SizedBox(
-              width: size.width * 0.75,
-              child: CustomButton(
-                text: 'AGREE AND CONTINUE',
-                onPressed: () {
-                  navigateToLoginScreen(context);
-                },
+              SizedBox(
+                height: size.height / 9,
               ),
-            ),
-          ],
+              Image.asset(
+                'assets/bg.png',
+                height: 340,
+                width: 340,
+                color: tabColor,
+              ),
+              SizedBox(
+                height: size.height / 9,
+              ),
+              const Padding(
+                padding: EdgeInsets.all(15.0),
+                child: Text(
+                  'Read our Privacy Policy. Tap "Agree and continue" to accept the term of Service',
+                  style: TextStyle(
+                    color: greyColor,
+                  ),
+                  textAlign: TextAlign.center,
+                ),
+              ),
+              const SizedBox(
+                height: 10,
+              ),
+              SizedBox(
+                width: size.width * 0.75,
+                child: CustomButton(
+                  text: 'AGREE AND CONTINUE',
+                  onPressed: () {
+                    navigateToLoginScreen(context);
+                  },
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );

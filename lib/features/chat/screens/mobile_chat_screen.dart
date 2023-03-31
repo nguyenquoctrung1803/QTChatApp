@@ -3,8 +3,10 @@ import 'package:flutter_chatapp/common/widgets/loading_screen.dart';
 import 'package:flutter_chatapp/features/auth/controllers/auth_controllers.dart';
 import 'package:flutter_chatapp/models/user_models.dart';
 import 'package:flutter_chatapp/utils/colors.dart';
-import 'package:flutter_chatapp/widgets/chat_list.dart';
+import 'package:flutter_chatapp/features/chat/widget/chat_list.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+
+import '../widget/bottom_chat_field.dart';
 
 class MobileChatScreen extends ConsumerWidget {
   static const String routeName = '/mobile-chat-screen';
@@ -63,55 +65,12 @@ class MobileChatScreen extends ConsumerWidget {
       ),
       body: Column(
         children: [
-          const Expanded(
-            child: ChatList(),
-          ),
-          TextField(
-            decoration: InputDecoration(
-              fillColor: mobileChatBoxColor,
-              filled: true,
-              prefixIcon: const Padding(
-                padding: EdgeInsets.symmetric(
-                  horizontal: 20,
-                ),
-                child: Icon(
-                  Icons.emoji_emotions_outlined,
-                  color: Colors.grey,
-                ),
-              ),
-              suffixIcon: Padding(
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 20,
-                ),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: const [
-                    Icon(
-                      Icons.camera_alt,
-                      color: Colors.grey,
-                    ),
-                    Icon(
-                      Icons.attach_file,
-                      color: Colors.grey,
-                    ),
-                    Icon(
-                      Icons.money,
-                      color: Colors.grey,
-                    ),
-                  ],
-                ),
-              ),
-              hintText: 'Type a Messages',
-              border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(20),
-                borderSide: const BorderSide(
-                  width: 0,
-                  style: BorderStyle.none,
-                ),
-              ),
-              contentPadding: const EdgeInsets.all(10),
+          Expanded(
+            child: ChatList(
+              receiverUserId: uid,
             ),
           ),
+          BottomChatField(uid),
         ],
       ),
     );

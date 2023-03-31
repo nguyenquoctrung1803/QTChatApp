@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_chatapp/utils/colors.dart';
-import 'package:flutter_chatapp/widgets/contact_list.dart';
+import 'package:flutter_chatapp/features/chat/widget/contact_list.dart';
 
 import '../features/select_contact/screens/select_contact_screen.dart';
 

@@ -2,7 +2,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_chatapp/common/utils/utils.dart';
-import 'package:flutter_chatapp/layouts/mobile_chat_screen.dart';
+import 'package:flutter_chatapp/features/chat/screens/mobile_chat_screen.dart';
 import 'package:flutter_chatapp/models/user_models.dart';
 import 'package:flutter_contacts/flutter_contacts.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -39,11 +39,20 @@ class SelectContactRepository {
 
       for (var document in userCollection.docs) {
         var userData = UserModel.fromMap(document.data());
-        String selectedPhoneNum = selectedContact.phones[0].number.replaceAll(
-          ' ',
-          '',
-        );
-        if (selectedPhoneNum == userData.phoneNumber) {
+
+        String textSelect(String str) {
+          str = str.replaceAll(' ', '');
+          str = str.replaceAll('(', '');
+          str = str.replaceAll(')', '');
+          str = str.replaceAll('-', '');
+          return str;
+        }
+
+        String selectedPhoneNum = selectedContact.phones[0].number;
+
+        String slectedPhoneNumber = textSelect(selectedPhoneNum);
+
+        if (slectedPhoneNumber == userData.phoneNumber) {
           isFound = true;
           Navigator.pushNamed(context, MobileChatScreen.routeName, arguments: {
             'name': userData.name,

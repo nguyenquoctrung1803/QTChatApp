@@ -13,7 +13,7 @@ class MyMessagesCard extends StatelessWidget {
       alignment: Alignment.centerRight,
       child: ConstrainedBox(
         constraints: BoxConstraints(
-          maxWidth: MediaQuery.of(context).size.width - 45,
+          maxWidth: MediaQuery.of(context).size.width - 55,
         ),
         child: Card(
           elevation: 1,
@@ -50,7 +50,7 @@ class MyMessagesCard extends StatelessWidget {
                         color: Colors.white60,
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       width: 5,
                     ),
                     const Icon(

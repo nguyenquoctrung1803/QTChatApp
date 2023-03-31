@@ -50,7 +50,7 @@ class SenderMessages extends StatelessWidget {
                         color: Colors.white60,
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       width: 5,
                     ),
                     const Icon(
