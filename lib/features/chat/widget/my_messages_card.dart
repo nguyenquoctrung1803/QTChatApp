@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'package:flutter_chatapp/utils/colors.dart';
+import 'package:flutter_chatapp/common/utils/colors.dart';
 
 class MyMessagesCard extends StatelessWidget {
   final String message;

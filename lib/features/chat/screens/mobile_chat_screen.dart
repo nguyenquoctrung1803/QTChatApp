@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_chatapp/common/widgets/loading_screen.dart';
 import 'package:flutter_chatapp/features/auth/controllers/auth_controllers.dart';
 import 'package:flutter_chatapp/models/user_models.dart';
-import 'package:flutter_chatapp/utils/colors.dart';
+import 'package:flutter_chatapp/common/utils/colors.dart';
 import 'package:flutter_chatapp/features/chat/widget/chat_list.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 

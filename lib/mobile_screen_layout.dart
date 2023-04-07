@@ -1,11 +1,45 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_chatapp/common/utils/colors.dart';
+import 'package:flutter_chatapp/features/auth/controllers/auth_controllers.dart';
 import 'package:flutter_chatapp/features/chat/widget/contact_list.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'features/select_contact/screens/select_contact_screen.dart';
 
-class MobileScreenLayout extends StatelessWidget {
+class MobileScreenLayout extends ConsumerStatefulWidget {
   const MobileScreenLayout({super.key});
+
+  @override
+  ConsumerState<MobileScreenLayout> createState() => _MobileScreenLayoutState();
+}
+
+class _MobileScreenLayoutState extends ConsumerState<MobileScreenLayout>
+    with WidgetsBindingObserver {
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addObserver(this);
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    WidgetsBinding.instance.addObserver(this);
+  }
+
+  @override
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+    super.didChangeAppLifecycleState(state);
+    if (state == AppLifecycleState.resumed) {
+      //TODO: set status to online here in firestore
+      ref.read(authControllerProvider).setUserState(true);
+      print('online');
+    } else {
+      //TODO: set status to offline here in firestore
+      ref.read(authControllerProvider).setUserState(false);
+      print('offline');
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +52,10 @@ class MobileScreenLayout extends StatelessWidget {
           title: const Text(
             'QTChatApp',
             style: TextStyle(
-                color: Colors.grey, fontSize: 20, fontWeight: FontWeight.bold),
+              color: Colors.grey,
+              fontSize: 20,
+              fontWeight: FontWeight.bold,
+            ),
           ),
           centerTitle: false,
           actions: [

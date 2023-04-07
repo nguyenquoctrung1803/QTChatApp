@@ -3,11 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_chatapp/common/utils/utils.dart';
 import 'package:flutter_chatapp/common/widgets/custom_button.dart';
 import 'package:flutter_chatapp/features/auth/controllers/auth_controllers.dart';
-import 'package:flutter_chatapp/utils/colors.dart';
+import 'package:flutter_chatapp/common/utils/colors.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class LoginScreen extends ConsumerStatefulWidget {
-  static const routeName = '/login-screen';
+  static const String routeName = '/login-screen';
   const LoginScreen({super.key});
 
   @override

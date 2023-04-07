@@ -106,7 +106,7 @@ class ChatRepository {
     // users -> current user id  => chats -> reciever user id -> set data
     await firestore
         .collection('user')
-        .doc(auth.currentUser?.uid)
+        .doc(auth.currentUser!.uid)
         .collection('chats')
         .doc(receiverUserId)
         .set(

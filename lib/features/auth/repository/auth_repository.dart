@@ -56,10 +56,11 @@ class AuthRepository {
     }
   }
 
-  void verifyOtp(
-      {required BuildContext context,
-      required String verificationId,
-      required String userOTP}) async {
+  void verifyOtp({
+    required BuildContext context,
+    required String verificationId,
+    required String userOTP,
+  }) async {
     try {
       PhoneAuthCredential credential = PhoneAuthProvider.credential(
           verificationId: verificationId, smsCode: userOTP);
@@ -114,5 +115,11 @@ class AuthRepository {
             event.data()!,
           ),
         );
+  }
+
+  void setUserState(bool isOnline) async {
+    await firestore.collection('user').doc(auth.currentUser!.uid).update({
+      'isOnline': isOnline,
+    });
   }
 }
