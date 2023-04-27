@@ -1,10 +1,12 @@
 # flutter_chatapp
+QTCHAT APP (FLUTTER) (Firebase, Riverpod 2.0) 
 
-A new Flutter project.
-
-## Getting Started
-
-This project is a starting point for a Flutter application.
+## Features
++ Login, Sigin with phone number 
++ Select contact, image on your device 
++ Realtime chat and oder by time sent
++ Online & offline status
+Demo: https://youtu.be/3b9iwtxSsm4 
 
 A few resources to get you started if this is your first Flutter project:
 
